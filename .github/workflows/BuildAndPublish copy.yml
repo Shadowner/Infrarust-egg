@@ -1,0 +1,31 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - "main"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to DockerHub Registry
+        run: docker login -u shadowner -p ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Fetch the latest release of Infrarust
+        run: gh release download -R shadowner/infrarust -p 'infrarust-linux'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract the latest release of Infrarust
+        run: tar -xvf infrarust-linux-x86_64.tar.gz
+
+      - name: Build the latest Docker image
+        run:  docker build . --file Dockerfile --tag shadowner/infrarust-egg:latest
+
+      - name: Push the latest Docker image
+        run: docker push shadowner/infrarust-egg:latest
