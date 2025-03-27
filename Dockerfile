@@ -1,8 +1,6 @@
-FROM alpine:3.19
+FROM debian:12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl wget bash \
-    && useradd -m -d /home/container container \
-    && rm -rf /var/lib/apt/lists/*
+RUN adduser --disabled-password --home /home/container container
 
 USER container
 ENV USER=container HOME=/home/container

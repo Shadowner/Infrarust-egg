@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Fetch the latest release of Infrarust
-        run: gh release download -R shadowner/infrarust -p 'infrarust-linux'
+        run: gh release download -R shadowner/infrarust -p 'infrarust-linux-x86_64.tar.gz'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract the latest release of Infrarust
+      - name: Extract the latest release of Infrarusts
         run: tar -xvf infrarust-linux-x86_64.tar.gz
 
       - name: Build the latest Docker image

@@ -13,11 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Login to DockerHub Registry
-        run: docker login -u shadowner -p ${{ secrets.DOCKERHUB_TOKEN }}
-      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Fetch the latest release of Infrarust
-        run: gh release download -R shadowner/infrarust -p 'infrarust-linux'
+        run: gh release download -R shadowner/infrarust -p 'infrarust-linux-x86_64.tar.gz'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
