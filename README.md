@@ -1,10 +1,10 @@
-# Infrared for Pterodactyl ! 
+# Infrarust for Pterodactyl ! 
 Here is an egg that can be used with the Panel of Pterodactyl.
 
-What is Infrared ?
+What is Infrarust ?
 
 They explain it better than me : 
-[https://infrared.dev/](https://infrared.dev/)
+[https://infrarust.dev/](https://infrarust.dev/)
 
 TLDR; It'a reverse proxy for minecraft that allow you to only have one shown port for all your servers. Making redirections to the right server based on the subdomain associated with the server.
 

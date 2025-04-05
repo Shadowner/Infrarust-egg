@@ -10,13 +10,13 @@
     "description": "The basic installation on infrared with two server configurable via environment variables.",
     "features": null,
     "docker_images": {
-        "shadowner\/infrared-egg:latest": "shadowner\/infrared-egg:latest"
+        "shadowner\/infrarust-egg:latest": "shadowner\/infrarust-egg:latest"
     },
     "file_denylist": [],
-    "startup": "infrared",
+    "startup": "infrarust --config-path /home/container/config.yml --proxies-path /home/container/proxies",
     "config": {
         "files": "{\r\n    \"config.yml\": {\r\n        \"parser\": \"yaml\",\r\n        \"find\": {\r\n            \"bind\": \"0.0.0.0:{{server.build.default.port}}\",\r\n            \"keepAliveTimeout\": \"{{env.keepAliveTimeout}}s\",\r\n            \"filters.rateLimiter.requestLimit\": \"{{env.rateLimiterMaxRequests}}\",\r\n            \"filters.rateLimiter.windowLength\": \"{{env.rateLimiterTimeWindow}}s\"\r\n        }\r\n    }\r\n}",
-        "startup": "{\r\n    \"done\": \"System is online\"\r\n}",
+        "startup": "{\r\n    \"done\": \"Listening on \"\r\n}",
         "logs": "{}",
         "stop": "^C"
     },

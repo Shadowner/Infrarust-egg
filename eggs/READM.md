@@ -7,4 +7,4 @@ For now it's the only way to extend the number of Proxy.
 
 ## In the future
 
-In the future, I will try to create a new interface for any Infrared Eggs to add / handle new Proxies.
+In the future, I will try to create a new interface for any Infrarust Eggs to add / handle new Proxies.
